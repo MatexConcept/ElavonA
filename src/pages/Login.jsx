@@ -17,12 +17,16 @@ export default function Login() {
     setError('');
     setLoading(true);
 
-    // Small delay to show loading state
     setTimeout(() => {
-      const success = login(username, password);
+      const result = login(username, password);
       
-      if (success) {
-        navigate('/dashboard', { replace: true });
+      if (result.success) {
+        // Navigate based on role
+        if (result.role === 'admin') {
+          navigate('/dashboard', { replace: true });
+        } else {
+          navigate('/user-dashboard', { replace: true });
+        }
       } else {
         setError('Invalid username or password. Please try again.');
         setLoading(false);
@@ -34,7 +38,6 @@ export default function Login() {
     <div className="min-h-screen w-full flex items-center justify-center p-6" style={{ background: 'linear-gradient(135deg, rgba(139, 89, 62, 0.1) 0%, #FFF8F3 100%)' }}>
       <div className="w-full max-w-md">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#E5D3B7]">
-          {/* Header Section */}
           <div className="bg-gradient-to-br from-[#8B593E] to-[#6B4530] px-8 py-10 text-center">
             <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,12 +45,10 @@ export default function Login() {
               </svg>
             </div>
             <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-            <p className="text-white/80 text-sm">Sign in to access the admin dashboard</p>
+            <p className="text-white/80 text-sm">Sign in to access your dashboard</p>
           </div>
 
-          {/* Form Section */}
           <div className="px-8 py-8">
-            {/* Error Message */}
             {error && (
               <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
                 <div className="flex items-center">
@@ -59,7 +60,6 @@ export default function Login() {
               </div>
             )}
 
-            {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="username" className="block text-sm font-semibold text-[#4A3428] mb-2">
@@ -79,7 +79,6 @@ export default function Login() {
                     className="w-full pl-10 pr-4 py-3.5 border-2 border-[#E5D3B7] rounded-xl focus:outline-none focus:border-[#8B593E] focus:ring-2 focus:ring-[#8B593E]/20 transition-all text-[#4A3428] placeholder-[#9A8478]"
                     placeholder="Enter your username"
                     required
-                    autoComplete="username"
                     disabled={loading}
                   />
                 </div>
@@ -103,7 +102,6 @@ export default function Login() {
                     className="w-full pl-10 pr-4 py-3.5 border-2 border-[#E5D3B7] rounded-xl focus:outline-none focus:border-[#8B593E] focus:ring-2 focus:ring-[#8B593E]/20 transition-all text-[#4A3428] placeholder-[#9A8478]"
                     placeholder="Enter your password"
                     required
-                    autoComplete="current-password"
                     disabled={loading}
                   />
                 </div>
@@ -112,7 +110,7 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-[#8B593E] to-[#6B4530] text-white py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 mt-6 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#8B593E] to-[#6B4530] text-white py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed mt-6 flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>
@@ -134,10 +132,9 @@ export default function Login() {
             </form>
           </div>
 
-          {/* Footer */}
           <div className="px-8 py-6 bg-[#FFF8F3] border-t border-[#E5D3B7]">
             <p className="text-center text-sm text-[#9A8478]">
-              Elavon Admin Dashboard • Secure Access
+              Elavon Banking • Secure Access
             </p>
           </div>
         </div>
@@ -145,4 +142,3 @@ export default function Login() {
     </div>
   );
 }
-
