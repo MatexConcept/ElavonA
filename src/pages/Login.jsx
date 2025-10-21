@@ -69,7 +69,7 @@ export default function Login() {
                 Welcome Back
               </h1>
               <p className="text-white/80 text-xs sm:text-sm">
-                Sign in to access your dashboard
+                Sign in to continue banking with us 
               </p>
             </div>
 
