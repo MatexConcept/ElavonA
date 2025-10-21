@@ -16,3 +16,7 @@ body {
   background-color: var(--color-background);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
