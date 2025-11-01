@@ -51,7 +51,7 @@ export default function TransactionCard({ transaction, onEdit, onDelete }) {
                 isCredit ? 'text-income' : 'text-expense'
               }`}
             >
-              {isCredit ? '+' : '-'}${parseFloat(transaction.amount).toFixed(2)}
+              {isCredit ? '+' : '-'} €{parseFloat(transaction.amount).toFixed(2)}
             </p>
             <p className="text-xs text-textLight capitalize mt-0.5">
               {transaction.status}
@@ -150,7 +150,7 @@ export default function TransactionCard({ transaction, onEdit, onDelete }) {
                 isCredit ? 'text-income' : 'text-expense'
               }`}
             >
-              {isCredit ? '+' : '-'}${parseFloat(transaction.amount).toFixed(2)}
+              {isCredit ? '+' : '-'} €{parseFloat(transaction.amount).toFixed(2)}
             </p>
             <p className="text-xs text-textLight capitalize">
               {transaction.status}

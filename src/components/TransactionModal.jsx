@@ -8,7 +8,7 @@ export default function TransactionModal({ open, mode, data, onClose, onSave }) 
     description: '',
     type: 'debit',
     amount: '',
-    currency: 'USD',
+    currency: 'EUR',
     status: 'pending',
   });
 
@@ -32,7 +32,7 @@ export default function TransactionModal({ open, mode, data, onClose, onSave }) 
         description: '',
         type: 'debit',
         amount: '',
-        currency: 'USD',
+        currency: 'EUR',
         status: 'pending',
       });
     }
