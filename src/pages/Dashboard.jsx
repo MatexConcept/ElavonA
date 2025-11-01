@@ -107,7 +107,7 @@ export default function Dashboard() {
               Account Balance
             </p>
             <p className="text-xl sm:text-3xl font-bold text-primary break-words">
-              ${Number(settings.account_balance).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                €{Number(settings.account_balance).toLocaleString('en-US', { minimumFractionDigits: 2 })}
             </p>
           </div>
           <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
