@@ -21,7 +21,7 @@ export default function TransactionCard({ transaction, onEdit, onDelete }) {
         <div className="flex items-center gap-4">
           <div className="text-right">
             <p className={`text-lg font-bold ${isCredit ? 'text-income' : 'text-expense'}`}>
-              {isCredit ? '+' : '-'}${parseFloat(transaction.amount).toFixed(2)}
+              {isCredit ? '+' : '-'}€{parseFloat(transaction.amount).toFixed(2)}
             </p>
             <p className="text-xs text-textLight capitalize">{transaction.status}</p>
           </div>

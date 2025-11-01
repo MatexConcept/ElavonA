@@ -220,7 +220,7 @@ export default function UserDashboard() {
                                 : "text-[#E74C3C]"
                             }`}
                           >
-                            {isCredit ? "+" : "-"}$
+                            {isCredit ? "+" : "-"}€
                             {parseFloat(transaction.amount).toFixed(2)}
                           </p>
                           <p className="text-xs text-[#9A8478] capitalize">
