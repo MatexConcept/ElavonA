@@ -83,7 +83,7 @@ export default function UserDashboard() {
                 Total Balance
               </p>
               <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
-                $
+                €
                 {Number(settings.account_balance).toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                 })}
